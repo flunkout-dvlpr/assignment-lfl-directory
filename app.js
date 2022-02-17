@@ -21,3 +21,30 @@ function employeesView () {
   }
   document.getElementById('card').appendChild(employeesTable);
 }
+
+function addEmployeeView () {
+  document.getElementById('card').innerHTML = '';
+  const div = document.createElement('div');
+  div.innerHTML = `
+    <div>
+      <label>Name</label>
+    </div>
+    <div>
+      <input type="text" placeholder="Name"/>
+    </div>
+    <div>
+      <label>Phone #</label>
+    </div>
+    <div>
+      <input type="tel" placeholder="(###) ### - ####"/>
+    </div>
+    <div>
+    <label>Ofiice</label>
+    </div>
+    <div>
+      <input type="text" placeholder="####"/>
+    </div>
+    <button class="menu-button">Add</button>
+  `
+  document.getElementById('card').appendChild(div);
+}
