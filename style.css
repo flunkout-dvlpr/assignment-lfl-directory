@@ -19,5 +19,12 @@ body {
 .menu {
   height: 100%;
   width: 250px;
+  text-align: center;
   background-color: white;
+}
+
+.menu-button {
+  width: 80%;
+  margin: 8px;
+  padding: 10px;
 }
