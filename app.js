@@ -78,9 +78,49 @@ function updateEmployeeView () {
   document.getElementById('updateEmployee').addEventListener('click', updateEmployee);
 }
 
+function verifyEmployeeView () {
+  document.getElementById('card').innerHTML = '';
+  const form = document.createElement('form');
+  form.innerHTML = `
+    <div>
+      <label>Name</label>
+    </div>
+    <div>
+      <input id="search" type="text" placeholder="Name"/>
+    </div>
+    <button id="verifyEmployee" class="menu-button">Verify</button>
+  `
+  form.className = "form-container"
+  document.getElementById('card').appendChild(form);
+  document.getElementById('verifyEmployee').addEventListener('click', verifyEmployee);
+}
+
+function removeEmployeeView () {
+  document.getElementById('card').innerHTML = '';
+  const form = document.createElement('form');
+  form.innerHTML = `
+    <div>
+      <label>Name</label>
+    </div>
+    <div>
+      <input id="removeSearch" type="text" placeholder="Name"/>
+    </div>
+    <button id="removeEmployee" class="menu-button">Remove</button>
+  `
+  form.className = "form-container"
+  document.getElementById('card').appendChild(form);
+  document.getElementById('removeEmployee').addEventListener('click', removeEmployee);
+}
+
 function addEmployee () {
   console.log('Add Employee')
 }
 function updateEmployee () {
   console.log('Update Employee')
+}
+function verifyEmployee () {
+  console.log('Verify Employee')
+}
+function removeEmployee () {
+  console.log('Remove Employee')
 }
