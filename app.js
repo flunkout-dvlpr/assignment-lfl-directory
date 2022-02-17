@@ -24,27 +24,63 @@ function employeesView () {
 
 function addEmployeeView () {
   document.getElementById('card').innerHTML = '';
-  const div = document.createElement('div');
-  div.innerHTML = `
+  const form = document.createElement('form');
+  form.innerHTML = `
     <div>
       <label>Name</label>
     </div>
     <div>
-      <input type="text" placeholder="Name"/>
+      <input id="newEmployeeName" type="text" placeholder="Name"/>
     </div>
     <div>
       <label>Phone #</label>
     </div>
     <div>
-      <input type="tel" placeholder="(###) ### - ####"/>
+      <input id="newEmployeePhone" type="tel" placeholder="(###) ### - ####"/>
     </div>
     <div>
     <label>Ofiice</label>
     </div>
     <div>
-      <input type="text" placeholder="####"/>
+      <input id="newEmployeeOffice" type="text" placeholder="####"/>
     </div>
-    <button class="menu-button">Add</button>
+    <button id="addEmployee" class="menu-button">Add</button>
   `
-  document.getElementById('card').appendChild(div);
+  document.getElementById('card').appendChild(form);
+  document.getElementById('addEmployee').addEventListener('click', addEmployee);
+}
+
+function updateEmployeeView () {
+  document.getElementById('card').innerHTML = '';
+  const form = document.createElement('form');
+  form.innerHTML = `
+    <div>
+      <label>Name</label>
+    </div>
+    <div>
+      <input id="employeeName" type="text" placeholder="Name"/>
+    </div>
+    <div>
+      <label>Phone #</label>
+    </div>
+    <div>
+      <input id="employeePhone" type="tel" placeholder="(###) ### - ####"/>
+    </div>
+    <div>
+    <label>Ofiice</label>
+    </div>
+    <div>
+      <input id="employeeOffice" type="text" placeholder="####"/>
+    </div>
+    <button id="updateEmployee" class="menu-button">Update</button>
+  `
+  document.getElementById('card').appendChild(form);
+  document.getElementById('updateEmployee').addEventListener('click', updateEmployee);
+}
+
+function addEmployee () {
+  console.log('Add Employee')
+}
+function updateEmployee () {
+  console.log('Update Employee')
 }
