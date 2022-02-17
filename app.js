@@ -46,6 +46,7 @@ function addEmployeeView () {
     </div>
     <button id="addEmployee" class="menu-button">Add</button>
   `
+  form.className = "form-container"
   document.getElementById('card').appendChild(form);
   document.getElementById('addEmployee').addEventListener('click', addEmployee);
 }
@@ -74,6 +75,7 @@ function updateEmployeeView () {
     </div>
     <button id="updateEmployee" class="menu-button">Update</button>
   `
+  form.className = "form-container"
   document.getElementById('card').appendChild(form);
   document.getElementById('updateEmployee').addEventListener('click', updateEmployee);
 }
@@ -113,8 +115,29 @@ function removeEmployeeView () {
 }
 
 function addEmployee () {
-  console.log('Add Employee')
+  const name = document.getElementById('newEmployeeName').value.replace(/ /g,'')
+  const phone = document.getElementById('newEmployeePhone').value.replace(/ /g,'')
+  const office = document.getElementById('newEmployeeOffice').value.replace(/ /g,'')
+  if (name && office && phone) {
+    if (phone.length === 10 && !isNaN(phone)) {
+      const phoneFormatted = `${phone.substring(0,3)}-${phone.substring(3,6)}-${phone.substring(6,10)}`
+      newEmployee = { name: name, officeNum: office, phoneNum: phoneFormatted }
+      employeeList.unshift(newEmployee)
+      employeesView()
+      event.preventDefault()
+      return false
+    } else {
+      alert('☎️ Enter a valid phone number! ☎️')
+      event.preventDefault()
+      return false
+    }
+  } else {
+    alert('😯😯😯 All fields required! 😯😯😯')
+    event.preventDefault()
+    return false
+  }
 }
+
 function updateEmployee () {
   console.log('Update Employee')
 }
