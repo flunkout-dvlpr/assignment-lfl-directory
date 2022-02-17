@@ -177,7 +177,19 @@ function updateEmployee () {
 }
 
 function verifyEmployee () {
-  console.log('Verify Employee')
+  const name = document.getElementById('search').value.replace(/ /g,'')
+  if (name) {
+    let employee = employeeList.find(employee => employee.name.toLowerCase() === name.toLowerCase())
+    if (employee) {
+      alert(`📇Employee found!\n😀Name: ${employee.name}\n☎️Phone: ${employee.officeNum}\n📍Office: ${employee.phoneNum}`)
+      event.preventDefault()
+      return false
+    } else {
+      alert(`😯😯😯 No employee with name ${name} was found! 😯😯😯`)
+      event.preventDefault()
+      return false
+    }
+  }
 }
 function removeEmployee () {
   console.log('Remove Employee')
