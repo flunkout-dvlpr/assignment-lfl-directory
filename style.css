@@ -1,1 +1,23 @@
 /* Your work here */
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: green;
+}
+.menu {
+  height: 100%;
+  width: 250px;
+  background-color: white;
+}
