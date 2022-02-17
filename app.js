@@ -139,8 +139,43 @@ function addEmployee () {
 }
 
 function updateEmployee () {
-  console.log('Update Employee')
+  const name = document.getElementById('employeeName').value.replace(/ /g,'')
+  const phone = document.getElementById('employeePhone').value.replace(/ /g,'')
+  const office = document.getElementById('employeeOffice').value.replace(/ /g,'')
+  if (name) {
+    let employee = employeeList.find(employee => employee.name.toLowerCase() === name.toLowerCase())
+    if (employee) {
+      const employeeIdx = employeeList.findIndex(employee => employee.name.toLowerCase() === name.toLowerCase())
+      if (phone === '' && office === '') {
+        document.getElementById('employeePhone').value = employee.phoneNum.replace(/-/g, '')
+        document.getElementById('employeeOffice').value = employee.officeNum
+        event.preventDefault()
+        return false
+      }
+      if (office && !isNaN(phone)) {
+        if (phone.length === 10) {
+          const phoneFormatted = `${phone.substring(0,3)}-${phone.substring(3,6)}-${phone.substring(6,10)}`
+          employeeList[employeeIdx] = { name: name, phoneNum: phoneFormatted, officeNum: office }
+          event.preventDefault()
+          return false
+        } else {
+          alert('☎️ Enter a valid phone number! ☎️')
+          event.preventDefault()
+          return false
+        }
+      }
+    } else {
+      alert(`😯😯😯 No employee with name ${name} was found! 😯😯😯`)
+      event.preventDefault()
+      return false
+    }
+  } else {
+    alert('😯😯😯 Name is required! 😯😯😯')
+    event.preventDefault()
+    return false
+  }
 }
+
 function verifyEmployee () {
   console.log('Verify Employee')
 }
