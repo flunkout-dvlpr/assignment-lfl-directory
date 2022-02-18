@@ -4,6 +4,13 @@ html {
   width: 100%;
   height: 100%;
   margin: 0%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 body {
@@ -16,11 +23,27 @@ body {
   align-items: center;
   background: green;
 }
+
+table {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+  margin: 2px;
+  padding: 10px;
+  font-size: 15px;
+}
+
 .menu {
   height: 100%;
   width: 250px;
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .menu-button {
@@ -44,8 +67,16 @@ body {
   text-align: center;
   border-radius: 30px;
   background-color: #a14cfa;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-container {
   padding: 25px;
+}
+
+.field-label {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
 }
