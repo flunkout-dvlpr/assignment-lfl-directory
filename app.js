@@ -27,19 +27,19 @@ function addEmployeeView () {
   const form = document.createElement('form');
   form.innerHTML = `
     <div>
-      <label>Name</label>
+      <label class="field-label">Name</label>
     </div>
     <div>
       <input id="newEmployeeName" type="text" placeholder="Name"/>
     </div>
     <div>
-      <label>Phone #</label>
+      <label class="field-label">Phone #</label>
     </div>
     <div>
       <input id="newEmployeePhone" type="tel" placeholder="(###) ### - ####"/>
     </div>
     <div>
-    <label>Ofiice</label>
+    <label class="field-label">Ofiice</label>
     </div>
     <div>
       <input id="newEmployeeOffice" type="text" placeholder="####"/>
@@ -56,19 +56,19 @@ function updateEmployeeView () {
   const form = document.createElement('form');
   form.innerHTML = `
     <div>
-      <label>Name</label>
+      <label class="field-label">Name</label>
     </div>
     <div>
       <input id="employeeName" type="text" placeholder="Name"/>
     </div>
     <div>
-      <label>Phone #</label>
+      <label class="field-label">Phone #</label>
     </div>
     <div>
       <input id="employeePhone" type="tel" placeholder="(###) ### - ####"/>
     </div>
     <div>
-    <label>Ofiice</label>
+    <label class="field-label">Ofiice</label>
     </div>
     <div>
       <input id="employeeOffice" type="text" placeholder="####"/>
@@ -85,7 +85,7 @@ function verifyEmployeeView () {
   const form = document.createElement('form');
   form.innerHTML = `
     <div>
-      <label>Name</label>
+      <label class="field-label">Name</label>
     </div>
     <div>
       <input id="search" type="text" placeholder="Name"/>
@@ -102,7 +102,7 @@ function removeEmployeeView () {
   const form = document.createElement('form');
   form.innerHTML = `
     <div>
-      <label>Name</label>
+      <label class="field-label">Name</label>
     </div>
     <div>
       <input id="removeSearch" type="text" placeholder="Name"/>
@@ -192,5 +192,21 @@ function verifyEmployee () {
   }
 }
 function removeEmployee () {
-  console.log('Remove Employee')
+  const name = document.getElementById('removeSearch').value.replace(/ /g,'')
+  if (name) {
+    let employee = employeeList.find(employee => employee.name.toLowerCase() === name.toLowerCase())
+    if (employee) {
+      const employeeIdx = employeeList.findIndex(employee => employee.name.toLowerCase() === name.toLowerCase())
+      document.getElementById('removeSearch').value = ''
+      alert(`📇Employee\n😀Name: ${employee.name}\n☎️Phone: ${employee.officeNum}\n📍Office: ${employee.phoneNum}\nREMOVED`)
+      employeeList.splice(employeeIdx, 1)
+      employeesView()
+      event.preventDefault()
+      return false
+    } else {
+      alert(`😯😯😯 No employee with name ${name} was found! 😯😯😯`)
+      event.preventDefault()
+      return false
+    }
+  }
 }
