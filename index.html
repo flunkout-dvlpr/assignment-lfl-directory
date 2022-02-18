@@ -11,15 +11,18 @@
 
   <nav class="menu">
     <div>
-      <button class="menu-button">View</button>
-      <button class="menu-button">Add</button>
-      <button class="menu-button">Update</button>
-      <button class="menu-button">Verify</button>
-      <button class="menu-button">Remove</button>
+      <label>LFL Directory</label>
+      <button class="menu-button" onClick="employeesView()">View</button>
+      <button class="menu-button" onClick="addEmployeeView()">Add</button>
+      <button class="menu-button" onClick="updateEmployeeView()">Update</button>
+      <button class="menu-button" onClick="verifyEmployeeView()">Verify</button>
+      <button class="menu-button" onClick="removeEmployeeView()">Remove</button>
     </div>
   </nav>
 
-  <main></main>
+  <main id="container">
+    <div id="card"></div>
+  </main>
 
   <body>
     <script src="dom.js"></script>
