@@ -1,5 +1,10 @@
 const employeeList = [
   {
+    name: 'Julio',
+    officeNum: 'Remote',
+    phoneNum: '832-589-5877'
+  },
+  {
     name: 'Jan',
     officeNum: 1,
     phoneNum: '222-222-2222'
