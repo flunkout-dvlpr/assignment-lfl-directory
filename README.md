@@ -40,3 +40,8 @@ Feel free to reach out to with any questions or for clarification.
 - MVC JS architecture
 
 ## Dev notes
+- Used a table to display all employees, inserted as rows
+- When adding an employee, I used upshift instead of push in order to insert the new employee object at the top
+- With more time I could have intergrated update/validate into a single view, since validation must happen in order to update an employee
+- When updating an employee, if no office and phone are provided it sets the fields to the stored values
+- When removing an employee, the user is notified using an alert and displaying the employee table, could create an actual pop up dialog instead.
